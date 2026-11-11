@@ -1,0 +1,124 @@
+/* Layout da página: mantém o conteúdo no topo e centralizado na largura máxima. */
+.cardapio {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Alinha o conteúdo ao início do eixo vertical. */
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+  gap: 1.5rem;
+}
+
+/* Agrupa o título e o subtítulo. */
+.headerContainer {
+  width: 100%;
+  border-bottom: 2px solid #d3d3d3;
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Organiza os itens em colunas responsivas. */
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cartão individual do cardápio. */
+.item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  width: 100%;
+  gap: 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.conteudoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Estilos de títulos, preços e descrições. */
+.h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: left;
+  color: #111;
+}
+
+.subtitulo {
+  margin: 0.25rem 0 0 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.preco {
+  font-weight: bold;
+  color: #0070f3;
+  font-size: 1.1rem;
+}
+
+.p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Botão de ação principal. */
+.botao {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.botao:hover {
+  background-color: #005bb5;
+}
+
+/* Em telas estreitas, usa uma coluna e reduz os espaçamentos. */
+@media (max-width: 600px) {
+  .cardapio {
+    min-height: 100svh;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .lista {
+    grid-template-columns: 1fr;
+  }
+}
